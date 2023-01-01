@@ -1,0 +1,10 @@
+{
+    "name": "mobius/php8.2-feature",
+    "authors": [
+        {
+            "name": "Wu Mobius",
+            "email": "energy908@gmail.com"
+        }
+    ],
+    "require": {}
+}
