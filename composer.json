@@ -17,5 +17,10 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^9"
+  },
+  "scripts": {
+    "test": [
+      "./vendor/bin/phpunit -v --columns max --colors --testdox tests"
+    ]
   }
 }
