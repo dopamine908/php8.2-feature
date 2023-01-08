@@ -5,6 +5,7 @@ namespace Test;
 use PHPUnit\Framework\TestCase;
 use Src\ConstantsInTraits\Example1Trait;
 use Src\ConstantsInTraits\UseExample2TraitClass;
+use Src\ConstantsInTraits\UseExample3TraitClass;
 
 class ConstantsInTraitsTest extends TestCase
 {
@@ -33,6 +34,18 @@ class ConstantsInTraitsTest extends TestCase
     {
         $useExample2TraitClass = new UseExample2TraitClass();
         $this->assertEquals('const value : example_2_value', $useExample2TraitClass->tryIt());
+    }
+
+    /**
+     * @test
+     * 基本使用範例三
+     * 可將 const 宣告在使用 interface
+     * 但可以在 trait 中使用 const
+     */
+    public function case3()
+    {
+        $useExample3TraitClass = new UseExample3TraitClass();
+        $this->assertEquals('const value : example_3_value', $useExample3TraitClass->tryIt());
     }
 
 }
