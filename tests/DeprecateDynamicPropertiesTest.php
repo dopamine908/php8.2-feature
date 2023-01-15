@@ -3,6 +3,7 @@
 namespace Test;
 
 use PHPUnit\Framework\TestCase;
+use Src\DeprecateDynamicProperties\Cat;
 use Src\DeprecateDynamicProperties\Dog;
 use Src\DeprecateDynamicProperties\User;
 
@@ -49,6 +50,21 @@ class DeprecateDynamicPropertiesTest extends TestCase
         $dog = new Dog();
         $dog->name = 'dog_name';
         $this->assertEquals("dog_name", $dog->name);
+    }
+
+    /**
+     * @test
+     * 想要還有另外一個方法
+     * 複寫 __get()/__set() 魔術方法
+     * 給設定跟取用一個預設邏輯
+     * 這樣在動態寫入屬性的時候就會先去跑 __set() 的寫入邏輯
+     * 而不會被認定為 warning
+     */
+    public function example3()
+    {
+        $cat = new Cat();
+        $cat->name = "cat_name";
+        $this->assertEquals("cat_name", $cat->name);
     }
 
 }
