@@ -3,6 +3,7 @@
 namespace Test;
 
 use PHPUnit\Framework\TestCase;
+use Src\DeprecateDynamicProperties\Dog;
 use Src\DeprecateDynamicProperties\User;
 
 class DeprecateDynamicPropertiesTest extends TestCase
@@ -35,6 +36,19 @@ class DeprecateDynamicPropertiesTest extends TestCase
 
         $this->assertEquals("foo", $user->name);
         $this->assertEquals("0912345678", $user->phone);
+    }
+
+    /**
+     * @test
+     * 在 php 8.2 中如果想對 class 做動態寫入屬性
+     * 但又想要忽落 warning 的話
+     * 可以在 class 上方加上 #[AllowDynamicProperties]
+     */
+    public function example2()
+    {
+        $dog = new Dog();
+        $dog->name = 'dog_name';
+        $this->assertEquals("dog_name", $dog->name);
     }
 
 }
